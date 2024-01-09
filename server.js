@@ -19,25 +19,13 @@ const server = http.createServer((req, res) => {
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
   if (page == '/') {
-    fs.readFile('index.html', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(data);
-      res.end();
-    });
+    readWrite('index.html', 'text/html')
   }
   else if (page == '/otherpage') {
-    fs.readFile('otherpage.html', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(data);
-      res.end();
-    });
+    readWrite('otherpage.html', 'text/html')
   }
   else if (page == '/otherotherpage') {
-    fs.readFile('otherotherpage.html', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(data);
-      res.end();
-    });
+    readWrite('otherotherpage.html', 'text/html')
   }
   else if (page == '/api') {
     if ('student' in params) {
